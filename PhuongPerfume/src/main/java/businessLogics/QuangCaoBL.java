@@ -28,10 +28,10 @@ public class QuangCaoBL {
 		}
 		return dsqc;
 	}
-	public static void main(String[] args) {
-		List<QuangCao> dsqc = docTatCa();
-		for(QuangCao qc : dsqc) {
-			System.out.println(qc.getThongDiep());
-		}
-	}
+//	public static void main(String[] args) {
+//		List<QuangCao> dsqc = docTatCa();
+//		for(QuangCao qc : dsqc) {
+//			System.out.println(qc.getThongDiep());
+//		}
+//	}
 }

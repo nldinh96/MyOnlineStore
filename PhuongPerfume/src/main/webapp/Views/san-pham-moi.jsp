@@ -4,6 +4,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -18,14 +19,16 @@
                                     <img src="img/${sp.hinhAnh}" alt="${sp.hinhAnh}">
                                     <div class="product-hover">
                                         <a href="ThemVaoGioServlet?idsp=${sp.id}&slm=1" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a><br>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a></p>
+                                        <a href="trang-san-pham.jsp?idsp=${sp.id}&idloai=${sp.id_loai}&idthuonghieu=${sp.id_thuongHieu}" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a></p>
                                     </div>
                                 </div>
                                 
-                                <h2><a href="single-product.html">${sp.tenSanPham}</a></h2>
-                                
+                                <h2><a href="trang-san-pham.jsp?idsp=${sp.id}&idloai=${sp.id_loai}&idthuonghieu=${sp.id_thuongHieu}">${sp.tenSanPham}</a></h2>                             
                                 <div class="product-carousel-price">
-                                     <del>${sp.donGia}</del> <ins>${sp.donGiaKM}</ins>
+                                	<fmt:setLocale value="vi-VN"/>
+									<fmt:formatNumber value="${sp.donGia}" type="number" var="donGia"></fmt:formatNumber>
+									<fmt:formatNumber value="${sp.donGiaKM}" type="number" var="donGiaKM"></fmt:formatNumber>
+                                     <del>${donGia} đ</del> <ins>${donGiaKM} đ</ins>
                                 </div> 
                             </div>
                           </c:forEach>

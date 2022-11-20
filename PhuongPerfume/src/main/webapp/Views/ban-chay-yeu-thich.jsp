@@ -3,6 +3,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <div class="product-widget-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -10,10 +12,11 @@
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top Sellers</h2>
-                        <a href="" class="wid-view-more">View All</a>
+                        <a href="trang-cua-hang.jsp" class="wid-view-more">View All</a>
+                        <c:forEach items="${dsbc}" var="bc">                       
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <a href="trang-san-pham.jsp?idsp=${bc.id}&idloai=${bc.id_loai}&idthuonghieu=${bc.id_thuongHieu}"><img src="img/${bc.hinhAnh}" alt="" class="product-thumb"></a>
+                            <h2><a href="trang-san-pham.jsp?idsp=${bc.id}&idloai=${bc.id_loai}&idthuonghieu=${bc.id_thuongHieu}">${bc.tenSanPham}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -22,46 +25,23 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+	                            <fmt:setLocale value="vi-VN"/>
+								<fmt:formatNumber value="${bc.donGia}" type="number" var="donGia"></fmt:formatNumber>
+								<fmt:formatNumber value="${bc.donGiaKM}" type="number" var="donGiaKM"></fmt:formatNumber>
+                                 <del>${donGia} đ</del>  <ins>${donGiaKM} đ</ins>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new mac book 2015</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new i phone 6</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                       </c:forEach>                      
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Recently Viewed</h2>
-                        <a href="#" class="wid-view-more">View All</a>
+                        <h2 class="product-wid-title">Most Discounted</h2>
+                        <a href="trang-cua-hang.jsp" class="wid-view-more">View All</a>
+                        <c:forEach items="${dsgn}" var="gn">
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
+                            <a href="trang-san-pham.jsp?idsp=${gn.id}&idloai=${gn.id_loai}&idthuonghieu=${gn.id_thuongHieu}"><img src="img/${gn.hinhAnh}" alt="" class="product-thumb"></a>
+                            <h2><a href="trang-san-pham.jsp?idsp=${gn.id}&idloai=${gn.id_loai}&idthuonghieu=${gn.id_thuongHieu}">${gn.tenSanPham}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -70,46 +50,23 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                            	<fmt:setLocale value="vi-VN"/>
+								<fmt:formatNumber value="${gn.donGia}" type="number" var="donGia"></fmt:formatNumber>
+								<fmt:formatNumber value="${gn.donGiaKM}" type="number" var="donGiaKM"></fmt:formatNumber>
+                                <del>${donGia} đ</del>  <ins>${donGiaKM} đ</ins>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony Smart Air Condtion</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                        </c:forEach>                                            
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top New</h2>
-                        <a href="#" class="wid-view-more">View All</a>
+                        <a href="trang-cua-hang.jsp" class="wid-view-more">View All</a>
+                        <c:forEach items="${dsspm}" var="spm">
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new i phone 6</a></h2>
+                            <a href="trang-san-pham.jsp?idsp=${spm.id}&idloai=${spm.id_loai}&idthuonghieu=${spm.id_thuongHieu}"><img src="img/${spm.hinhAnh}" alt="" class="product-thumb"></a>
+                            <h2><a href="trang-san-pham.jsp?idsp=${spm.id}&idloai=${spm.id_loai}&idthuonghieu=${spm.id_thuongHieu}">${spm.tenSanPham}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -118,37 +75,13 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                            	<fmt:setLocale value="vi-VN"/>
+								<fmt:formatNumber value="${spm.donGia}" type="number" var="donGia"></fmt:formatNumber>
+								<fmt:formatNumber value="${spm.donGiaKM}" type="number" var="donGiaKM"></fmt:formatNumber>
+                                <del>${donGia} đ</del>  <ins>${donGiaKM} đ</ins>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                        </c:forEach>                                             
                     </div>
                 </div>
             </div>

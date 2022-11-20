@@ -7,6 +7,6 @@
 <jsp:include page="Views/chinh-sach.jsp"/>
 <jsp:include page="QuangCaoServlet"/>
 <jsp:include page="SanPhamMoiServlet"/>
-<jsp:include page="Views/thuong-hieu.jsp"/>
-<jsp:include page="Views/ban-chay-yeu-thich.jsp"/>
+<jsp:include page="ThuongHieuServlet"/>
+<jsp:include page="BanChayYeuThichServlet"/>
 <jsp:include page="Views/cuoi-trang.jsp"/>

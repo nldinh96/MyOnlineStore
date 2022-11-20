@@ -3,13 +3,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ustora Demo</title>
+    <title>PhuongPerfume</title>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -52,7 +54,7 @@
                 
                 <div class="col-md-4">
                     <div class="header-right">
-                        <form name="frmTimSanPham" action="" method="post">
+                        <form name="frmTimSanPham" action="${pageContext.request.contextPath}/trang-cua-hang.jsp" method="post">
                             <input type="text" name="txtTenSanPham" value="" placeholder="Tìm sản phẩm, thương hiệu" size="30"/>
                             <input type="submit" name="btnTim" value="Tìm"/>
                         </form>
@@ -73,7 +75,9 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="trang-gio-hang.jsp">Giỏ hàng: <span class="cart-amunt">${sessionScope.gioHang.tongTien()} đ</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">${sessionScope.gioHang.soMatHang()}</span></a>
+                      	<fmt:setLocale value="vi-VN"/>
+						<fmt:formatNumber value="${sessionScope.gioHang.tongTien()}" type="number" var="tongTien"></fmt:formatNumber>              
+                        <a href="trang-gio-hang.jsp">Giỏ hàng: <span class="cart-amunt">${tongTien} đ</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">${sessionScope.gioHang.soMatHang()}</span></a>
                     </div>
                 </div>
             </div>

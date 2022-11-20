@@ -104,8 +104,19 @@ public class SanPhamBL {
                 dssp.add(sp);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Bi loi: "+e.getMessage());
+            throw new RuntimeException("Bi loi: "+e, e);
         }
         return dssp;
     }
+//    public static void main(String[] args) {
+//		List<SanPham> dssp = sanPhamTrang(2, 8);
+//		for(SanPham sp :dssp) {
+//			System.out.println(sp.getTenSanPham());
+//		}
+//	}
+//    public static void main(String[] args) {
+//		List<SanPham> dssp = docTheoTen("lan");
+//		for(SanPham sp :dssp) {
+//			System.out.println(sp.getTenSanPham());
+//	}}
 }

@@ -38,7 +38,7 @@
                         <h2 class="footer-wid-title">Đăng nhập</h2>
                         <form action="DangNhapServlet" method="post">
                         	<p><input type="text" name="email" placeholder="Nhập email"></p>
-                        	<p><input type="password" name="password" placeholder="Nhập email"></p>
+                        	<p><input type="password" name="password" placeholder="Nhập password"></p>
                         	<input type="submit" name="btnDangNhap" value="Đăng nhập">
                         </form>                     
                     </div>

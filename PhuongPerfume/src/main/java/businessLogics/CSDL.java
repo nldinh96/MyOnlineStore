@@ -9,8 +9,10 @@ public class CSDL {
 	public static Connection getKetNoi() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/phuong_perfume?useUnicode=true&characterEncoding=UTF-8";
-			ketNoi = DriverManager.getConnection(url,"root","");
+			String url = "jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/heroku_6c654acec80cb40?useUnicode=true&characterEncoding=UTF-8";
+//			String url = "jdbc:mysql://localhost:3306/phuong_perfume?useUnicode=true&characterEncoding=UTF-8";
+			ketNoi = DriverManager.getConnection(url,"b68390db3af54b","cbc956c2");
+//			ketNoi = DriverManager.getConnection(url,"root","");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

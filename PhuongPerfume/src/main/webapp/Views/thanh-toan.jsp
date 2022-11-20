@@ -3,6 +3,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -27,38 +29,6 @@
                             <input type="text" placeholder="Thông tin tìm kiếm...">
                             <input type="submit" value="Tìm">
                         </form>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Sản phẩm</h2>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
                     </div>
                 </div>
                 
@@ -154,20 +124,13 @@
                                                 <th class="product-name">Sản phẩm</th>
                                                 <th class="product-total">Thành tiền</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="cart_item">
-                                                <td class="product-name">
-                                                    Ship Your Idea <strong class="product-quantity">× 1</strong> </td>
-                                                <td class="product-total">
-                                                    <span class="amount">£15.00</span> </td>
-                                            </tr>
-                                        </tbody>
+                                        </thead>                                     
                                         <tfoot>
-
                                             <tr class="cart-subtotal">
                                                 <th>Cộng thành tiền</th>
-                                                <td><span class="amount">£15.00</span>
+                                                <fmt:setLocale value="vi-VN"/>
+												<fmt:formatNumber value="${sessionScope.gioHang.tongTien()}" type="number" var="tongTien"></fmt:formatNumber>
+                                                <td><span class="amount">${tongTien} đ</span>
                                                 </td>
                                             </tr>
 
@@ -183,7 +146,9 @@
 
                                             <tr class="order-total">
                                                 <th>Tổng cộng</th>
-                                                <td><strong><span class="amount">£15.00</span></strong> </td>
+                                                <fmt:setLocale value="vi-VN"/>
+												<fmt:formatNumber value="${sessionScope.gioHang.tongTien()}" type="number" var="tongTien"></fmt:formatNumber>
+                                                <td><strong><span class="amount">${tongTien} đ</span></strong> </td>
                                             </tr>
 
                                         </tfoot>
